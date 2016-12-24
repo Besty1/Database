@@ -1,0 +1,113 @@
+
+   -- BBS(论坛)
+create database BBS;
+use BBs;
+   -- Board
+   create table Board(
+      ID int primary key,
+      name varchar(16) not null,
+      date  varchar(),
+      description  varchar(64)
+   );
+
+insert into Board values(001,'aaa','2016-12-24 11:02:11','心灵鸡汤');
+
+insert into Board values(002,'bbb','2016-12-24 11:02:11','心灵砒霜');
+
+   -- Forum
+   create table Forum(
+     FID int primary key,
+     Forum_name  varchar(16) not null,
+     Forum_description  varchar(64) not null,
+     ID  int
+   );
+
+insert  into values(111,'青春论坛'，'致我们终将逝去的青春'，01);
+  insert  into  values(222,'网游论坛'，'虚拟的欢乐'，02);
+
+
+   -- Article
+   create table Article(
+     AID int primary key,
+     theme varchar(16) not null,
+     Rosting_time  varchar(16),
+     FID  int,
+     viewed  varchar(32),
+     content  varchar(128),
+     UID  int,
+     LastReplyDate varchar(16),
+     LastReplyUID  varchar(16)
+   );
+
+
+
+
+
+   -- Reply
+    create table Reply(
+      content varchar(128),
+      title  varchar(16),
+      UID int,
+      ReplyDate  varchar(32),
+      AID int
+    );
+
+
+    -- 版主
+     create table moderator(
+       FID int primary key,
+       UID int primary key,
+       OperUID int,
+       OperDare varchar(16),
+       foreign key(FID,UID)
+     );
+
+
+     -- UserDesc
+    create table UserDesc(
+      UID int primary key,
+      Desci  varchar(16) not null,
+      Name  varchar(16),
+      Sex varchar(8),
+      Birthday  varchar(16)
+      foreign key(UID)
+    );
+
+     -- User
+     create table User(
+       UID int primary key,
+       UserName varchar(16) not null,
+       Password  varchar(32) not null,
+     );
+
+
+     -- Entity7
+     create table Entity7(
+       UID int,
+      RoleID int,
+      primary key(UID,RoleID),
+      foreign key(UID,RoleID)
+     );
+
+
+     --  Entity9
+      create table Entity9(
+        RID int,
+        RoleID int,
+        primary key(RID,RoleID),
+        foreign key(RID,RoleID)
+      );
+
+
+      -- Role
+      create table Role(
+        RoleID int  primary key,
+        RoleName varchar(16)
+      );
+
+
+       -- Permissions
+       create table Permissions(
+         RID int primary key,
+         RightName varchar(16)
+       );
