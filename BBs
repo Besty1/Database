@@ -45,8 +45,8 @@ use BBs;
       content varchar(128),
       title  varchar(16),
       UID int not null,
-      ReplyDate  varchar(32),
-      AID int
+      ReplyDate  datetime,
+      AID int not null
     );
 
 
