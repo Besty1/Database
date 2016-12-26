@@ -32,7 +32,7 @@ use BBs;
      viewed  varchar(32),
      content  varchar(128),
      UID  int not null,
-     LastReplyDate varchar(16),
+     LastReplyDate datetime,
      LastReplyUID  varchar(16)
    );
 
@@ -55,7 +55,7 @@ use BBs;
        FID int not null primary key,
        UID int not null primary key,
        OperUID not null int,
-       OperDare varchar(16),
+       OperDate datetime,
        foreign key(FID,UID)
      );
 
@@ -66,7 +66,7 @@ use BBs;
       Desci  varchar(16) not null,
       Name  varchar(16),
       Sex varchar(8),
-      Birthday  varchar(16)
+      Birthday  datetime,
       foreign key(UID)
     );
 
