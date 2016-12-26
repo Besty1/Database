@@ -4,37 +4,34 @@ create database BBS;
 use BBs;
    -- Board
    create table Board(
-      ID int primary key,
+      ID int not null primary key,
       name varchar(16) not null,
       date  varchar(),
       description  varchar(64)
    );
 
-insert into Board values(001,'aaa','2016-12-24 11:02:11','心灵鸡汤');
 
-insert into Board values(002,'bbb','2016-12-24 11:02:11','心灵砒霜');
 
    -- Forum
    create table Forum(
-     FID int primary key,
+     FID int not null primary key,
      Forum_name  varchar(16) not null,
      Forum_description  varchar(64) not null,
      ID  int
    );
 
-insert  into values(111,'青春论坛'，'致我们终将逝去的青春'，01);
-  insert  into  values(222,'网游论坛'，'虚拟的欢乐'，02);
+
 
 
    -- Article
    create table Article(
-     AID int primary key,
+     AID int not null primary key,
      theme varchar(16) not null,
      Rosting_time  varchar(16),
-     FID  int,
+     FID  int not null,
      viewed  varchar(32),
      content  varchar(128),
-     UID  int,
+     UID  int not null,
      LastReplyDate varchar(16),
      LastReplyUID  varchar(16)
    );
@@ -55,9 +52,9 @@ insert  into values(111,'青春论坛'，'致我们终将逝去的青春'，01);
 
     -- 版主
      create table moderator(
-       FID int primary key,
-       UID int primary key,
-       OperUID int,
+       FID int not null primary key,
+       UID int not null primary key,
+       OperUID not null int,
        OperDare varchar(16),
        foreign key(FID,UID)
      );
@@ -65,7 +62,7 @@ insert  into values(111,'青春论坛'，'致我们终将逝去的青春'，01);
 
      -- UserDesc
     create table UserDesc(
-      UID int primary key,
+      UID int not null primary key,
       Desci  varchar(16) not null,
       Name  varchar(16),
       Sex varchar(8),
@@ -75,7 +72,7 @@ insert  into values(111,'青春论坛'，'致我们终将逝去的青春'，01);
 
      -- User
      create table User(
-       UID int primary key,
+       UID int not null primary key,
        UserName varchar(16) not null,
        Password  varchar(32) not null,
      );
@@ -83,7 +80,7 @@ insert  into values(111,'青春论坛'，'致我们终将逝去的青春'，01);
 
      -- Entity7
      create table Entity7(
-       UID int,
+       UID intnot null,
       RoleID int,
       primary key(UID,RoleID),
       foreign key(UID,RoleID)
@@ -92,8 +89,8 @@ insert  into values(111,'青春论坛'，'致我们终将逝去的青春'，01);
 
      --  Entity9
       create table Entity9(
-        RID int,
-        RoleID int,
+        RID int not null,
+        RoleID int not null,
         primary key(RID,RoleID),
         foreign key(RID,RoleID)
       );
@@ -101,13 +98,13 @@ insert  into values(111,'青春论坛'，'致我们终将逝去的青春'，01);
 
       -- Role
       create table Role(
-        RoleID int  primary key,
+        RoleID int not null primary key,
         RoleName varchar(16)
       );
 
 
        -- Permissions
        create table Permissions(
-         RID int primary key,
+         RID int not null primary key,
          RightName varchar(16)
        );
