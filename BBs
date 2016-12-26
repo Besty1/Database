@@ -6,7 +6,7 @@ use BBs;
    create table Board(
       ID int not null primary key,
       name varchar(16) not null,
-      date  varchar(),
+      date  datetime,
       description  varchar(64)
    );
 
@@ -17,7 +17,7 @@ use BBs;
      FID int not null primary key,
      Forum_name  varchar(16) not null,
      Forum_description  varchar(64) not null,
-     ID  int
+     ID  int not null
    );
 
 
@@ -27,7 +27,7 @@ use BBs;
    create table Article(
      AID int not null primary key,
      theme varchar(16) not null,
-     Rosting_time  varchar(16),
+     Rosting_time  datetime,
      FID  int not null,
      viewed  varchar(32),
      content  varchar(128),
@@ -44,7 +44,7 @@ use BBs;
     create table Reply(
       content varchar(128),
       title  varchar(16),
-      UID int,
+      UID int not null,
       ReplyDate  varchar(32),
       AID int
     );
@@ -80,8 +80,8 @@ use BBs;
 
      -- Entity7
      create table Entity7(
-       UID intnot null,
-      RoleID int,
+       UID int not null,
+      RoleID int not null,
       primary key(UID,RoleID),
       foreign key(UID,RoleID)
      );
