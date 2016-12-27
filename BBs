@@ -4,17 +4,17 @@ create database BBS;
 use BBs;
    -- Board
    create table Board(
-      ID int not null primary key,
+      ID int auto_increment primary key,
       name varchar(16) not null,
-      date  datetime,
-      description  varchar(64)
+      Creation_date date not null,
+      description  varchar(64)  not null
    );
 
 
 
    -- Forum
    create table Forum(
-     FID int not null primary key,
+     FID int auto_increment primary key,
      Forum_name  varchar(16) not null,
      Forum_description  varchar(64) not null,
      ID  int not null
